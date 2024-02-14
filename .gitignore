@@ -1,0 +1,31 @@
+# Ignore the bin and obj directories
+DotNetParticles/bin/
+DotNetParticles/obj/
+
+# Ignore all .user files
+*.user
+
+# Ignore all .suo files
+*.suo
+
+# Ignore all .userprefs files
+*.userprefs
+
+# Ignore all files that might appear in the root directory
+# because of building or opening the project
+*.sln.docstates
+
+# Ignore VS code directory
+.vs/
+
+# Ignore temporary files
+*.[Oo]bj
+*.[Bb]in
+*.[Ll]og
+*.[Tt]mp
+
+# Ignore ReSharper directory
+_ReSharper*/
+
+# Ignore .NET Core directory
+**/publish/

@@ -1,0 +1,89 @@
+﻿<Window x:Class="DotNetParticles.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    Title="DotNetParticles" Height="500" Width="275" ResizeMode="NoResize"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    Background="{DynamicResource PrimaryHueMidBrush}"
+    WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Window.Resources>
+        <Style x:Key="CloseButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" Padding="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ThemeButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="ParticleGrid" MouseLeftButtonDown="ParticleGrid_MouseLeftButtonDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Canvas x:Name="ParticleCanvas" Background="Transparent" />
+
+        <Grid Grid.Row="0" Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Background="{DynamicResource SecondaryHueMidBrush}" CornerRadius="10">
+                <StackPanel Margin="20">
+                    <DockPanel LastChildFill="True" Margin="5">
+                        <materialDesign:PackIcon Kind="AccountCircle" Width="24" Height="24" VerticalAlignment="Center" DockPanel.Dock="Left" Margin="0,0,8,0" Foreground="{DynamicResource MaterialDesignBody}"/>
+                        <TextBox materialDesign:HintAssist.Hint="Username" Margin="0,5,0,5" />
+                    </DockPanel>
+                    <DockPanel LastChildFill="True" Margin="5">
+                        <materialDesign:PackIcon Kind="Lock" Width="24" Height="24" VerticalAlignment="Center" DockPanel.Dock="Left" Margin="0,0,8,0" Foreground="{DynamicResource MaterialDesignBody}"/>
+                        <PasswordBox materialDesign:HintAssist.Hint="Password" Margin="0,5,0,15" />
+                    </DockPanel>
+                    <Button Content="Login" Style="{StaticResource MaterialDesignRaisedButton}" Margin="5" Padding="5" />
+                    <TextBlock Margin="5,2,5,5" HorizontalAlignment="Center" TextDecorations="Underline" Foreground="{DynamicResource MaterialDesignBody}">
+                        <Hyperlink Foreground="{DynamicResource MaterialDesignBody}" Click="ForgotPassword_Click">Forgot password?</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+            <Button Width="30" Height="30" Background="Purple" BorderThickness="0" Margin="5" x:Name="Theme1" Click="Theme1_Click" Style="{StaticResource ThemeButtonStyle}"/>
+            <Button Width="30" Height="30" Background="Green"  BorderThickness="0" Margin="5" x:Name="Theme2" Click="Theme2_Click" Style="{StaticResource ThemeButtonStyle}"/>
+            <Button Width="30" Height="30" Background="Black"  BorderThickness="0" Margin="5" x:Name="Theme3" Click="Theme3_Click" Style="{StaticResource ThemeButtonStyle}"/>
+            <Button Width="30" Height="30" Background="Orange" BorderThickness="0" Margin="5" x:Name="Theme4" Click="Theme4_Click" Style="{StaticResource ThemeButtonStyle}"/>
+        </StackPanel>
+
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 3, 36, 0" Style="{StaticResource CloseButtonStyle}" Click="MinimizeButton_Click">
+            <materialDesign:PackIcon Kind="Minimize" Height="20" Width="30" VerticalAlignment="Center" RenderTransformOrigin="0.096,0.531" HorizontalAlignment="Center"/>
+        </Button>
+
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 3, 3, 0" Style="{StaticResource CloseButtonStyle}" Click="CloseButton_Click">
+            <materialDesign:PackIcon Kind="Close" Height="20" Width="30" VerticalAlignment="Center" RenderTransformOrigin="0.096,0.531" HorizontalAlignment="Center"/>
+        </Button>
+
+    </Grid>
+</Window>
