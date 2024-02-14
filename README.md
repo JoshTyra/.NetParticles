@@ -26,3 +26,6 @@ To use DotNetParticles in your project, follow these steps:
 2. Include the DotNetParticles project in your solution.
 3. Add a reference to the DotNetParticles project from your application project.
 4. Build the solution.
+
+![Example Image](DotNetParticles/images/Example_1.png)
+![Example Image](DotNetParticles/images/Example_2.png)
